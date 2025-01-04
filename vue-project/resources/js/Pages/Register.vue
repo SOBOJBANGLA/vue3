@@ -67,7 +67,7 @@ const submit = () => {
     form.post(route("candidate_register"));
 };
 const backgroundStyle = { 
-        backgroundImage: `url("images/hero/bg3.jpg")`,
+        backgroundImage: `url("images/hero/bg4.jpg")`,
          backgroundPosition: 'center', 
         backgroundSize: 'cover',  
         };

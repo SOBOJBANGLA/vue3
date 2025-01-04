@@ -1,12 +1,12 @@
 <template>
     <Header />
-    <section class="bg-half-170 d-table w-100" style="background: url('images/hero/bg.jpg');">
+    <section class="bg-half-170 d-table w-100" style="background: url('images/hero/bg2.jpg');">
         <div class="bg-overlay bg-gradient-overlay"></div>
         <div class="container">
             <div class="row mt-5 justify-content-center">
                 <div class="col-12">
                     <div class="title-heading text-center">
-                        <h5 class="heading fw-semibold mb-0 sub-heading text-white title-dark">Job Vacancies</h5>
+                        <h5 class="heading fw-semibold mb-0 sub-heading text-white title-dark">Job Lists</h5>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
 
                             <div class="mt-3 mt-md-0">
                                 <a href="" class="btn btn-sm btn-icon btn-pills btn-soft-primary bookmark"><i data-feather="bookmark" class="icons"></i></a>
-                                <a href="job-detail-one.html" class="btn btn-sm btn-primary w-full ms-md-1">Apply Now</a>
+                                <Link :href="route('jobDetail', { id: job.id })" class="btn btn-sm btn-primary w-full ms-md-1">Apply Now</Link>
                             </div>
                         </div>
                     </div><!--end col-->

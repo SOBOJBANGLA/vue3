@@ -87,6 +87,7 @@ Route::group(['prefix' => '/'],function(){
         Route::post('updateProfile/{user}', [CandidateController::class, 'updateProfile'])->name('updateProfile');
         //Route::resource('applicant', ApplicantController::class);
         Route::get('createApplicant/{jobId}', [HomeController::class, 'application_view'])->name('applicant.create');
+       //Route::get('/job/{id}/apply', [HomeController::class, 'application_view']);
         Route::post('apply', [HomeController::class, 'application'])->name('apply.job');
        // Route::get('job/{jobId}', [ApplicantController::class, 'showJob']);
     //    Route::get('contact', [HomeController::class, 'contact_form'])->name('contact_create');

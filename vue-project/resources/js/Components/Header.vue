@@ -36,8 +36,7 @@
                         <a href="" class="dropdown-item fw-medium fs-6"><i data-feather="user" class="fea icon-sm me-2 align-middle"></i>Profile</a>
                         <a href="" class="dropdown-item fw-medium fs-6"><i data-feather="settings" class="fea icon-sm me-2 align-middle"></i>Settings</a>
                         <div class="dropdown-divider border-top"></div>
-                         <a href="" class="dropdown-item fw-medium fs-6"><i data-feather="list" class="fea icon-sm me-2 align-middle"></i>My Jobs</a>
-
+                        <a :href="route('my_jobs')" class="dropdown-item fw-medium fs-6"> <i data-feather="list" class="fea icon-sm me-2 align-middle"></i> My Jobs </a>
                          <Link :href="route('user_logout')" class="dropdown-item fw-medium fs-6"><i data-feather="log-out" class="fea icon-sm me-2 align-middle"></i>Logout</Link>
                     </div>
                 </div>
@@ -150,6 +149,7 @@
 
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
+import { route } from 'ziggy-js';
 const { user } = usePage().props;
 // console.log(user)
 </script>

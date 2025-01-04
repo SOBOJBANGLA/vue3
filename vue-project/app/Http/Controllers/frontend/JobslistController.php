@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Applicant;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Job;
@@ -48,17 +49,46 @@ class JobslistController extends Controller
           return view('frontend.jobsList', compact('jobs','jobtypes','locations','categories'));
 }
 
-public function jobDetail($jobId){
+// public function jobDetail($jobId){
+//     $companies = Company::all();
+//     $jobtypes = Jobtype::all();
+//     $locations = Location::all();
+//     $categories = Category::all();
+//     $job = Job::find($jobId);
+  
+//    $data['user'] = Auth::check();
+   
+//    return Inertia::render('JobDetails', [ 'job' => $job,'companies' => $companies, 'locations' => $locations, 'categories' => $categories, 'jobtypes' => $jobtypes, 'user' => $data['user'] ]);
+   
+// }
+
+public function jobDetail($jobId) {
+    if (Auth::check()) {
+        $candidateId = Auth::user()->id;
+
+        $data['application'] = Applicant::where('candidate_id', $candidateId)->where('job_id', $jobId)->first();
+    } else {
+        // Handle the case when the user is not authenticated
+        $data['application'] = null; // or some other default value
+    }
+
     $companies = Company::all();
     $jobtypes = Jobtype::all();
     $locations = Location::all();
     $categories = Category::all();
     $job = Job::find($jobId);
-   // return view('frontend.jobsdetail',compact('job'));
-   $data['user'] = Auth::check();
-   //return Inertia::render('Job',compact('jobs','locations','categories','jobtypes'));
-   return Inertia::render('JobDetails', [ 'job' => $job,'companies' => $companies, 'locations' => $locations, 'categories' => $categories, 'jobtypes' => $jobtypes, 'user' => $data['user'] ]);
-   //return Inertia::render('JobDetails',compact('job','jobtypes','locations','categories'));
+
+    $data['user'] = Auth::check();
+
+    return Inertia::render('JobDetails', [
+        'job' => $job,
+        'companies' => $companies,
+        'locations' => $locations,
+        'categories' => $categories,
+        'jobtypes' => $jobtypes,
+        'user' => $data['user'],
+        'application' => $data['application']
+    ]);
 }
 
 
