@@ -16,7 +16,10 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/">Home</RouterLink>||
         <RouterLink to="/food">Food Items</RouterLink>||
         <RouterLink to="/fruit">Fruit Items</RouterLink>||
-        <RouterLink to="/todo">Todo List</RouterLink>
+        <RouterLink to="/todo">Todo List</RouterLink>||
+        <RouterLink to="/ref">Ref Hook</RouterLink>||
+        <RouterLink to="/lifecycle">LifeCycle Hook</RouterLink>||
+        <RouterLink to="/form">Form Inputs</RouterLink>
       </nav>
     </div>
   </header>
